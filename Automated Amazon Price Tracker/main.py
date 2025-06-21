@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import smtplib
 import os
 from dotenv import load_dotenv
-import re
 
 load_dotenv()
 
