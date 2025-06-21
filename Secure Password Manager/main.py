@@ -10,17 +10,15 @@ from tkinter import messagebox
 def find_password():
     website = website_entry.get()
     try:
-        with open ("Password Manager (DAY 29)/logo.png", "r") as data_file:
-            data = json.load(data_file) 
-    except FileNotFoundError:
-        messagebox.showinfo(title="Error", message="No Data File Found")
-    else:
+        with open("Password Manager (DAY 29)/data.json", "r") as data_file:
+             data = json.load(data_file)
+
         if website in data:
-            email = data[website]["email"]
-            password = data[website]["password"]
-            messagebox.showinfo(title=website, message=f"Email: {email}\nPassword: {password}")
-        else:
-            messagebox.showinfo(title="Error", message=f"No details for {website} exists.")
+                email = data[website]["email"]
+                password = data[website]["password"]
+                messagebox.showinfo(title=website, message=f"Email: {email}\nPassword: {password}")
+    except FileNotFoundError:
+        messagebox.showerror(title="Error", message="No Data File Found.")
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate_password():
